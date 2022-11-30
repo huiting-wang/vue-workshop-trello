@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const toggle = ref(false);
+</script>
 
 <template>
   <div
@@ -9,6 +13,8 @@
         <!-- card -->
         <div
           v-for="i in 3"
+          :key="i"
+          @click="toggle = !toggle"
           class="bg-slate-200 block border rounded-sm p-2 mx-2 border-gray-500 min-w-[300px]"
         >
           <!-- column -->
@@ -61,7 +67,7 @@
 
     <!-- lightbox -->
     <div
-      v-if="0"
+      v-if="toggle"
       class="fixed top-0 left-0 w-full h-full bg-slate-800 z-100 bg-opacity-70"
     >
       <div
